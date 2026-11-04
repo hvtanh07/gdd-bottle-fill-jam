@@ -19,7 +19,7 @@
   --paper:#EEF1F6; --surface:#FFFFFF; --ink:#18203A; --muted:#566079; --line:#D6DCE8; --tint:#E3E8F1;
   --rail:#232A40; --rail-ink:#EEF1F8; --rail-muted:#AAB3C9; --rail-line:rgba(255,255,255,.13); --rail-hover:rgba(255,255,255,.08);
   --track:#2A3149; --accent:#1F55D6; --focus:#1F55D6; --mark:#FFDF5E; --flash:rgba(255,214,64,.42); --wip:#FBE7A1;
-  --c1:#D9363E; --c2:#2563EB; --c3:#1B8641; --c4:#F4BE0B; --c5:#F472B6; --c6:#F58220; --c7:#7C4DDB; --c8:#22B8D1;
+  --c1:#D9363E; --c2:#2563EB; --c3:#1B8641; --c4:#F4BE0B; --c5:#F472B6; --c6:#F58220; --c7:#7C4DDB; --c8:#8B5A2B;
   --display:"Baloo 2","Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --rail-w:304px; --bar-h:0px;
@@ -112,7 +112,7 @@ main{container-type:inline-size;padding:48px clamp(20px,5vw,64px) 30vh;width:100
 .cap b{position:relative;font:800 1em/1 var(--display);color:var(--on);transform:translateY(.04em)}
 .c1{--cc:var(--c1)}.c2{--cc:var(--c2)}.c3{--cc:var(--c3)}.c4{--cc:var(--c4)}
 .c5{--cc:var(--c5)}.c6{--cc:var(--c6)}.c7{--cc:var(--c7)}.c8{--cc:var(--c8)}
-.c4,.c5,.c6,.c8{--on:#18203A}
+.c4,.c5,.c6{--on:#18203A}
 
 /* ---------- hero ---------- */
 .hero{display:grid;gap:32px}
@@ -1206,7 +1206,7 @@ function view(l){
     `A dark filling machine at the top with tall syringe-like tubes, pipes and valves; colored liquid in layers pours from the nozzles. Below, a pile of colored soda cans sits on a soft blue tray. Candy colors, soft light, a satisfying pour and a pop when the can is sealed. No real drink brands on the cans. Concept art link: ${tbd}.`,
     `Phía trên là máy rót màu tối với các ống cao giống ống tiêm, đường ống và van; chất lỏng màu xếp lớp chảy ra từ vòi. Bên dưới là đống lon nước ngọt nhiều màu trên khay xanh dịu. Màu kẹo tươi, ánh sáng dịu, cảm giác rót đã tay và tiếng “bốp” khi đóng lon. Không dùng thương hiệu nước uống thật trên lon. Link concept art: ${tbd}.`)}</p>`;
 
-  const colors=[t('Red','Đỏ'),t('Blue','Xanh dương'),t('Green','Xanh lá'),t('Yellow','Vàng'),t('Pink','Hồng'),t('Orange','Cam'),t('Purple','Tím'),t('Cyan','Xanh ngọc')];
+  const colors=[t('Red','Đỏ'),t('Blue','Xanh dương'),t('Green','Xanh lá'),t('Yellow','Vàng'),t('Pink','Hồng'),t('Orange','Cam'),t('Purple','Tím'),t('Brown','Nâu')];
   const anim=n=>t('Animation '+n,'Chuyển động '+n);
   B['core-game-object-concept']=
     ent(t('Color list','Bảng màu'),
@@ -1505,6 +1505,10 @@ function view(l){
   /* Add one day() block per day, newest first, with one ent per area changed */
   const day=(title,body)=>`<div class="sub"><h3><span>${title}</span></h3>${body}</div>`;
   B['change-note']=`<p class="sec-intro">${t('Changes made to this GDD, newest day first.','Các thay đổi của tài liệu này, ngày mới nhất ở trên cùng.')}</p>`+
+    day(t('4 November 2026','04/11/2026'),
+      ent(nm('Color list','Bảng màu'),ul([
+        t(`Color 8 changes from cyan to brown, so it no longer looks like blue. Jam, bottles and every sketch use the new color.`,`Màu 8 đổi từ xanh ngọc sang nâu, để không bị nhầm với xanh dương. Jam, chai và mọi hình minh họa dùng màu mới.`)
+      ])))+
     day(t('3 November 2026','03/11/2026'),
       ent(t('New document','Tài liệu mới'),ul([
         t(`Created this GDD from the template and the Bottle Fill Jam core loop.`,`Tạo tài liệu này từ template và vòng chơi chính của Bottle Fill Jam.`),
