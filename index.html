@@ -886,7 +886,7 @@ function view(l){
       ])
     ]))+
     ent(nm('Waiting tray','Khay chờ'),ul([
-      t(`Row of slots between the machine and the board. 1 slot at the start of a level.`,`Hàng ô nằm giữa máy và bàn chơi. Đầu màn có 1 ô.`),
+      t(`Row of slots between the machine and the board. Levels 1–10 start with 1 slot. From level 11, a level starts with 1 to 3 slots, set per level in the level config (traySlots).`,`Hàng ô nằm giữa máy và bàn chơi. Màn 1–10 bắt đầu với 1 ô. Từ màn 11, mỗi màn bắt đầu với 1 đến 3 ô, đặt riêng cho từng màn trong level config (traySlots).`),
       t(`Each ${P.bo1} booster adds 1 slot. Maximum 5.`,`Mỗi lần dùng công cụ ${P.bo1} thêm 1 ô. Tối đa 5 ô.`),
       t(`A bottle in the tray goes up on its own when its color reaches the bottom of an open tube and the fill spot is free. Several match: the leftmost bottle goes first.`,`Chai trong khay tự đi lên khi màu của nó xuống tới đáy một ống đang mở và ô rót trống. Nhiều chai cùng khớp: chai bên trái đi trước.`),
       t(`A full tray with no match ends the level (see Lose).`,`Khay đầy mà không chai nào khớp thì thua màn (xem mục Thua).`)
@@ -1507,6 +1507,9 @@ function view(l){
   const day=(title,body)=>`<div class="sub"><h3><span>${title}</span></h3>${body}</div>`;
   B['change-note']=`<p class="sec-intro">${t('Changes made to this GDD, newest day first.','Các thay đổi của tài liệu này, ngày mới nhất ở trên cùng.')}</p>`+
     day(t('26 November 2026','26/11/2026'),
+      ent(nm('Waiting tray','Khay chờ'),ul([
+        t(`Levels 1–10 start with 1 tray slot. From level 11, each level starts with 1 to 3 slots, set in the level config. Levels with more slots get bigger, deeper boards.`,`Màn 1–10 bắt đầu với 1 ô khay chờ. Từ màn 11, mỗi màn bắt đầu với 1 đến 3 ô, đặt trong level config. Màn có nhiều ô hơn sẽ có bàn lớn và sâu hơn.`)
+      ]))+
       ent(nm('Element unlock levels','Màn mở yếu tố'),ul([
         t(`${P.el1} unlocks at level 7, ${P.el2} at level 12, ${P.el3} at level 17.`,`${P.el1} mở ở màn 7, ${P.el2} ở màn 12, ${P.el3} ở màn 17.`),
         t(`Updated in 1.4 (elements), 2.3 (element tutorials) and the unlock order. Booster unlock levels are still TBD.`,`Cập nhật ở mục 1.4 (yếu tố), 2.3 (hướng dẫn yếu tố) và thứ tự mở khóa. Màn mở công cụ vẫn TBD.`)
@@ -1527,7 +1530,7 @@ function view(l){
   const legend=[
     ['A',nm('Jam tubes','Ống jam'),t('Jam in sets of 4 portions. Only the bottom set pours.','Jam xếp thành bộ 4 phần. Chỉ bộ ở đáy được rót.')],
     ['B',nm('Fill spots','Ô rót'),t('One under each tube. A bottle of the matching color fills here.','Mỗi ống có 1 ô. Chai cùng màu được rót ở đây.')],
-    ['C',nm('Waiting tray','Khay chờ'),t(`1 slot at the start. ${P.bo1} adds more, up to 5. Full with no match: the level is lost.`,`Đầu màn có 1 ô. ${P.bo1} thêm ô, tối đa 5. Đầy mà không khớp màu: thua màn.`)],
+    ['C',nm('Waiting tray','Khay chờ'),t(`1 slot at the start (1 to 3 from level 11). ${P.bo1} adds more, up to 5. Full with no match: the level is lost.`,`Đầu màn có 1 ô (từ màn 11 là 1 đến 3 ô). ${P.bo1} thêm ô, tối đa 5. Đầy mà không khớp màu: thua màn.`)],
     ['D',nm('Bottle pile','Đống chai'),t('Bottles in layers. Shaded ones are covered; only free bottles can be tapped.','Chai xếp nhiều lớp. Chai bị tô tối đang bị đè; chỉ chai tự do mới chạm được.')]
   ];
   const hero=`<div class="hero" id="top" data-sec="top" data-spy="top">
