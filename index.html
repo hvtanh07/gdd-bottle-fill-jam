@@ -1066,7 +1066,7 @@ function view(l){
       t(`Its color shows only when it reaches the bottom of the tube, at the nozzle.`,`Bộ chỉ hiện màu khi xuống tới đáy ống, sát vòi.`),
       t(`From then on it is a normal set. A bottle of its color can fill from it, and tray bottles of its color go up on their own.`,`Từ lúc đó bộ là bộ thường. Chai cùng màu được rót từ bộ này, chai cùng màu trong khay tự đi lên.`),
       t(`The player cannot plan with it, so bottles of its color may have to wait in the tray. Level design keeps tray room for this.`,`Người chơi không đoán trước được màu, nên chai cùng màu có thể phải chờ trong khay. Thiết kế màn cần chừa chỗ trong khay cho việc này.`)
-    ]),unl,demo('hiddenJam'))+
+    ]),t(`Unlocks at level 7`,`Mở ở màn 7`),demo('hiddenJam'))+
     ent(N.el2,ul([
       t(`A bottle on the board with a padlock. Its color shows, but it cannot be sent while locked. Tapped: it shakes.`,`Chai trên bàn chơi có ổ khóa. Vẫn thấy màu, nhưng không gửi lên được khi còn khóa. Chạm vào: chai rung nhẹ.`),
       `<b>${t('Step 1: unblock','Bước 1: giải phóng')}.</b> `+t(`The bottles resting on it must be sent first. No counter shows yet.`,`Phải gửi hết các chai đang đè lên nó. Lúc này chưa hiện bộ đếm.`),
@@ -1075,7 +1075,7 @@ function view(l){
       t(`At 0 the padlock opens. The bottle is a normal bottle from then on.`,`Về 0 thì ổ khóa mở. Từ lúc đó chai là chai thường.`),
       t(`The bottles under it stay blocked until it has been sent.`,`Các chai nằm dưới nó vẫn bị chặn cho tới khi chai này được gửi lên.`),
       fsLine(`the counter cannot reach 0 because too few bottles are left to send.`,`bộ đếm không thể về 0 vì còn quá ít chai để gửi.`)
-    ]),unl,demo('lockedBottle'))+
+    ]),t(`Unlocks at level 12`,`Mở ở màn 12`),demo('lockedBottle'))+
     ent(N.el3,ul([
       t(`A pair of 2 jam tubes that take turns. One is open, the other is closed by a lid.`,`Một cặp 2 ống jam thay phiên nhau. Một ống mở, ống kia bị nắp đóng lại.`),
       t(`A counter on the pair shows how many bottles x the player must send before they swap. x is set per level (${tbd}).`,`Bộ đếm trên cặp ống cho biết người chơi cần gửi bao nhiêu chai x thì hai ống đổi trạng thái. x đặt theo từng màn (${tbd}).`),
@@ -1085,7 +1085,7 @@ function view(l){
       t(`A bottle still filling when the counter hits 0 finishes first. Then the tubes swap.`,`Chai đang rót dở khi bộ đếm về 0 được rót xong trước. Sau đó hai ống mới đổi.`),
       t(`One tube already empty: the pair stops swapping and the other tube stays open.`,`Một ống đã trống: cặp ống ngừng đổi, ống còn lại luôn mở.`),
       fsLine(`the tray is full and the only jam that matches the tray bottles sits in the closed tube.`,`khay đã đầy và jam khớp với các chai trong khay chỉ nằm trong ống đang đóng.`)
-    ]),unl,demo('blockedTube'))+
+    ]),t(`Unlocks at level 17`,`Mở ở màn 17`),demo('blockedTube'))+
     ent(nm('Fail-safe','Cơ chế chống kẹt'),ul([
       t(`${P.el2} and ${P.el3} count down on bottles sent. ${P.el1} hides colors until the last moment. These can leave a level unsolvable.`,`${P.el2} và ${P.el3} đếm ngược theo số chai được gửi. ${P.el1} giấu màu tới phút cuối. Các yếu tố này có thể làm màn chơi không giải được.`),
       t(`The game treats these cases as a stuck:`,`Trò chơi coi các trường hợp sau là bị kẹt:`)+ol([
@@ -1175,9 +1175,9 @@ function view(l){
   B['element-tutorial']=table(t('Element tutorial','Hướng dẫn yếu tố đặc biệt'),
     [t('Element','Yếu tố'),t('Popup text','Nội dung popup'),t('Unlocks at level','Mở ở màn')],
     [
-      [N.el1,popup('Hidden jam shows its color<br>at the bottom of the tube.','Jam ẩn hiện màu<br>khi xuống đáy ống.'),tbd],
-      [N.el2,popup('Free the bottle, then send<br>more bottles to unlock it.','Giải phóng chai, rồi gửi<br>thêm chai để mở khóa.'),tbd],
-      [N.el3,popup('Send bottles to switch<br>which tube is open.','Gửi chai lên để đổi<br>ống đang mở.'),tbd]
+      [N.el1,popup('Hidden jam shows its color<br>at the bottom of the tube.','Jam ẩn hiện màu<br>khi xuống đáy ống.'),'7'],
+      [N.el2,popup('Free the bottle, then send<br>more bottles to unlock it.','Giải phóng chai, rồi gửi<br>thêm chai để mở khóa.'),'12'],
+      [N.el3,popup('Send bottles to switch<br>which tube is open.','Gửi chai lên để đổi<br>ống đang mở.'),'17']
     ]);
 
   /* one row per booster */
@@ -1189,16 +1189,16 @@ function view(l){
       [N.bo3,popup('Remove 3 bottles!','Xóa 3 chai!'),tbd,lvl(3)]
     ]);
 
-  /* every element and booster with its unlock level. Levels are TBD, so the order below is a suggestion. */
+  /* every element and booster with its unlock level. Element levels are set; booster levels are TBD. */
   const stops=[
     [1,t('First tutorial','Hướng dẫn đầu tiên'),'ftue','ftue-steps','FTUE'],
-    ['TBD',P.bo1,'boost','booster-mechanics'],['TBD',P.el1,'elem','elements-mechanics'],
-    ['TBD',P.bo2,'boost','booster-mechanics'],['TBD',P.el2,'elem','elements-mechanics'],
-    ['TBD',P.bo3,'boost','booster-mechanics'],['TBD',P.el3,'elem','elements-mechanics']
+    ['TBD',P.bo1,'boost','booster-mechanics'],[7,P.el1,'elem','elements-mechanics'],
+    ['TBD',P.bo2,'boost','booster-mechanics'],[12,P.el2,'elem','elements-mechanics'],
+    ['TBD',P.bo3,'boost','booster-mechanics'],[17,P.el3,'elem','elements-mechanics']
   ];
   B['ftue--tutorial:after']=`<div class="glance">
     <h4>${t('Unlock order at a glance','Thứ tự mở khóa theo màn')}</h4>
-    <p>${t('Sections 2.2 to 2.4 on one line. Unlock levels are not set yet, so this order is a suggestion.','Gom các mục 2.2 đến 2.4 trên một dòng. Màn mở khóa chưa chốt, nên thứ tự này chỉ là đề xuất.')}</p>
+    <p>${t('Sections 2.2 to 2.4 on one line. Element unlock levels are set. Booster unlock levels are not set yet.','Gom các mục 2.2 đến 2.4 trên một dòng. Màn mở yếu tố đã chốt. Màn mở công cụ chưa chốt.')}</p>
     <ol class="timeline">${stops.map(s=>`<li class="${s[2]}"><span class="lv">${t('Level','Màn')} ${s[0]}</span><span class="nm"><a href="#${s[3]}">${s[1]}</a></span><span class="kd">${s[4]||(s[2]==='boost'?t('Booster','Công cụ hỗ trợ'):t('Element','Yếu tố đặc biệt'))}</span></li>`).join('')}</ol>
   </div>`;
 
@@ -1506,6 +1506,11 @@ function view(l){
   /* Add one day() block per day, newest first, with one ent per area changed */
   const day=(title,body)=>`<div class="sub"><h3><span>${title}</span></h3>${body}</div>`;
   B['change-note']=`<p class="sec-intro">${t('Changes made to this GDD, newest day first.','Các thay đổi của tài liệu này, ngày mới nhất ở trên cùng.')}</p>`+
+    day(t('26 November 2026','26/11/2026'),
+      ent(nm('Element unlock levels','Màn mở yếu tố'),ul([
+        t(`${P.el1} unlocks at level 7, ${P.el2} at level 12, ${P.el3} at level 17.`,`${P.el1} mở ở màn 7, ${P.el2} ở màn 12, ${P.el3} ở màn 17.`),
+        t(`Updated in 1.4 (elements), 2.3 (element tutorials) and the unlock order. Booster unlock levels are still TBD.`,`Cập nhật ở mục 1.4 (yếu tố), 2.3 (hướng dẫn yếu tố) và thứ tự mở khóa. Màn mở công cụ vẫn TBD.`)
+      ])))+
     day(t('4 November 2026','04/11/2026'),
       ent(nm('Color list','Bảng màu'),ul([
         t(`Color 8 changes from cyan to brown, so it no longer looks like blue. Jam, bottles and every sketch use the new color.`,`Màu 8 đổi từ xanh ngọc sang nâu, để không bị nhầm với xanh dương. Jam, chai và mọi hình minh họa dùng màu mới.`)
